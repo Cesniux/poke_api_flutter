@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:poke_api_flutter/features/home/home_view.dart';
 
 void main() {
@@ -10,13 +11,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'PokeAPI',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ScreenUtilInit(
+      designSize: const Size(390, 844),
+      child: const HomeView(),
+      builder: (BuildContext context, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'PokeAPI',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: child,
       ),
-      home: const HomeView(),
     );
   }
 }

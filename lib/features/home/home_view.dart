@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:poke_api_flutter/style/res/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:poke_api_flutter/widgets/simple_pokemon_list_item.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<PokemonListItem> dummyList = List.filled(
+    List<SimplePokemonListItem> dummyList = List.filled(
       50,
-      const PokemonListItem(),
+      const SimplePokemonListItem(),
     );
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -31,47 +31,17 @@ class HomeView extends StatelessWidget {
                 fit: BoxFit.cover),
           ),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 20.w,
+                  mainAxisSpacing: 20.w,
                 ),
                 itemBuilder: (context, index) {
                   return dummyList[index];
                 }),
           )),
-    );
-  }
-}
-
-class PokemonListItem extends StatelessWidget {
-  const PokemonListItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: CColors.white,
-      ),
-      child: Center(
-        child: Container(
-          padding: const EdgeInsets.all((20)),
-          child: Column(
-            children: [
-              Flexible(
-                fit: FlexFit.loose,
-                child: SvgPicture.asset(
-                  'assets/images/svg/bulbasaur_image.svg',
-                ),
-              ),
-              const Text('bulbasaur'),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
