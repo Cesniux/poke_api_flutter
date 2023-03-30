@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:poke_api_flutter/style/res/constants.dart';
 
 class HomeView extends StatelessWidget {
@@ -52,9 +53,24 @@ class PokemonListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), color: CColors.white),
-      child: const Center(
-        child: Text('Pokemon'),
+        borderRadius: BorderRadius.circular(20),
+        color: CColors.white,
+      ),
+      child: Center(
+        child: Container(
+          padding: const EdgeInsets.all((20)),
+          child: Column(
+            children: [
+              Flexible(
+                fit: FlexFit.loose,
+                child: SvgPicture.asset(
+                  'assets/images/svg/bulbasaur_image.svg',
+                ),
+              ),
+              const Text('bulbasaur'),
+            ],
+          ),
+        ),
       ),
     );
   }
