@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:poke_api_flutter/style/theme/text_theme.dart';
+import 'package:poke_api_flutter/style/res/constants.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<PokemonListItem> dummyList = List.filled(
+      50,
+      const PokemonListItem(),
+    );
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -18,19 +22,39 @@ class HomeView extends StatelessWidget {
         elevation: 0,
       ),
       body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(
-                'assets/images/pokemon_background_image.png',
-              ),
-              fit: BoxFit.cover),
-        ),
-        child: Center(
-          child: Text(
-            'Squirtle',
-            style: textTheme.bodySmall,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+                  'assets/images/pokemon_background_image.png',
+                ),
+                fit: BoxFit.cover),
           ),
-        ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                ),
+                itemBuilder: (context, index) {
+                  return dummyList[index];
+                }),
+          )),
+    );
+  }
+}
+
+class PokemonListItem extends StatelessWidget {
+  const PokemonListItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20), color: CColors.white),
+      child: const Center(
+        child: Text('Pokemon'),
       ),
     );
   }
