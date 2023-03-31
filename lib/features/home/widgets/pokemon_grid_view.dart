@@ -13,7 +13,7 @@ class PokemonGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: 20.w, left: 20.w),
+      padding: EdgeInsets.only(right: 20.w, left: 20.w, top: 8.h),
       child: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
