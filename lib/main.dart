@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:poke_api_flutter/features/home/home_view.dart';
+import 'package:poke_api_flutter/features/detail/detail_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(390, 844),
-      child: const HomeView(),
+      child: const DetailView(),
       builder: (BuildContext context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'PokeAPI',
