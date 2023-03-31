@@ -12,7 +12,7 @@ class SimplePokemonListItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.w),
-        color: CColors.white,
+        color: CColors.grass,
       ),
       child: Center(
         child: Container(

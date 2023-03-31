@@ -31,7 +31,7 @@ class HomeView extends StatelessWidget {
                 fit: BoxFit.cover),
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            padding: EdgeInsets.only(right: 20.w, left: 20.w, top: 10.h),
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
