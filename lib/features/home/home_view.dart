@@ -11,28 +11,47 @@ class HomeView extends StatelessWidget {
       50,
       const SimplePokemonListItem(),
     );
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        title: Image.asset(
-          'assets/images/pokemon_title_image.png',
-          fit: BoxFit.contain,
-          height: 50,
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                  'assets/images/pokemon_background_image.png',
-                ),
-                fit: BoxFit.cover),
+    return Stack(children: [
+      Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              'assets/images/pokemon_background_image.png',
+            ),
+            fit: BoxFit.cover,
           ),
-          child: Padding(
-            padding: EdgeInsets.only(right: 20.w, left: 20.w, top: 10.h),
-            child: GridView.builder(
+        ),
+      ),
+      Scaffold(
+        extendBodyBehindAppBar: true,
+        extendBody: true,
+        backgroundColor: Colors.transparent,
+        body: SafeArea(
+          bottom: false,
+          child: NestedScrollView(
+            headerSliverBuilder: (context, innerBoxIsScrolled) => [
+              SliverAppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                title: Column(
+                  children: [
+                    Image.asset(
+                      'assets/images/pokemon_title_image.png',
+                      fit: BoxFit.contain,
+                      height: 50.h,
+                    ),
+                    SizedBox(
+                      height: 5.h,
+                    )
+                  ],
+                ),
+                floating: true,
+                snap: true,
+              ),
+            ],
+            body: Padding(
+              padding: EdgeInsets.only(right: 20.w, left: 20.w),
+              child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 20.w,
@@ -40,8 +59,12 @@ class HomeView extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) {
                   return dummyList[index];
-                }),
-          )),
-    );
+                },
+              ),
+            ),
+          ),
+        ),
+      ),
+    ]);
   }
 }
