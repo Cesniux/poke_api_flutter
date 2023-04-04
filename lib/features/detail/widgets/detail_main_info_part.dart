@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:poke_api_flutter/features/detail/widgets/detail_type_card_row.dart';
@@ -13,7 +12,7 @@ class DetailMainInfoPart extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<String> detailPokemonTypeList = [
       'bug',
-      'bloom',
+      'poison',
     ];
     return SizedBox(
       // color: CColors.dark,
