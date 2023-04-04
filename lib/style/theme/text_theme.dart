@@ -9,7 +9,7 @@ TextTheme textTheme = TextTheme(
     fontWeight: FontWeight.w700,
   ),
   labelLarge: TextStyle(
-    fontSize: 20.sp,
+    fontSize: 21.sp,
     color: CColors.silver100,
     fontWeight: FontWeight.w700,
   ),
@@ -23,4 +23,9 @@ TextTheme textTheme = TextTheme(
       fontWeight: FontWeight.w700,
       fontSize: 14,
       color: CColors.silver),
+  displayMedium: TextStyle(
+    fontSize: 17.sp,
+    fontWeight: FontWeight.w700,
+    color: CColors.black,
+  ),
 );

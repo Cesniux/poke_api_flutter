@@ -1,7 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:poke_api_flutter/style/res/constants.dart';
+import 'package:poke_api_flutter/style/theme/text_theme.dart';
 
 class DetailTypeCardRow extends StatelessWidget {
   final String type;
@@ -25,10 +25,7 @@ class DetailTypeCardRow extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 4.5.h, horizontal: 5.w),
           child: Text(
             type,
-            style: TextStyle(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w700,
-                color: CColors.black),
+            style: textTheme.displayMedium,
           ),
         ),
       ),
