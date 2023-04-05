@@ -36,8 +36,7 @@ class DetailView extends StatelessWidget {
             DetailPokemonImage(),
             DetailMainInfoPart(),
             DetailPerformanceStats(
-              statAPIValue: 45,
-              statName: 'HP',
+        
             )
           ],
         ),
