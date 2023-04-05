@@ -13,15 +13,15 @@ TextTheme textTheme = TextTheme(
     color: CColors.silver100,
     fontWeight: FontWeight.w700,
   ),
-  labelMedium: const TextStyle(
+  labelMedium: TextStyle(
     color: CColors.silver100,
     fontWeight: FontWeight.w700,
-    fontSize: 18,
+    fontSize: 18.sp,
   ),
-  labelSmall: const TextStyle(
+  labelSmall: TextStyle(
       letterSpacing: -0.4,
       fontWeight: FontWeight.w700,
-      fontSize: 14,
+      fontSize: 14.sp,
       color: CColors.silver),
   displayMedium: TextStyle(
     fontSize: 17.sp,

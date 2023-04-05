@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:poke_api_flutter/features/detail/widgets/detail_main_info_part.dart';
-import 'package:poke_api_flutter/features/detail/widgets/detail_performance_stats.dart';
+import 'package:poke_api_flutter/features/detail/widgets/detail_performance/detail_performance_stats.dart';
 import 'package:poke_api_flutter/features/detail/widgets/detail_pokemon_image.dart';
-import 'package:poke_api_flutter/features/detail/widgets/detail_star_icon.dart';
 import 'package:poke_api_flutter/style/res/constants.dart';
-import 'package:poke_api_flutter/style/theme/text_theme.dart';
 
 class DetailView extends StatelessWidget {
   const DetailView({super.key});
@@ -13,6 +10,7 @@ class DetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: false,
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
@@ -25,7 +23,7 @@ class DetailView extends StatelessWidget {
               topRight: Radius.circular(50),
             ),
             onTap: () {
-              // Navigator.pop(context);
+              Navigator.pop(context);
             },
             highlightColor: CColors.dark.withOpacity(0.4),
             child: const Icon(Icons.arrow_back, color: CColors.black),
@@ -35,13 +33,10 @@ class DetailView extends StatelessWidget {
           children: const [
             DetailPokemonImage(),
             DetailMainInfoPart(),
-            DetailPerformanceStats(
-        
-            )
+            DetailPerformanceStats()
           ],
         ),
       ),
     );
   }
 }
-

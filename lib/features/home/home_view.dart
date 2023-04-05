@@ -18,6 +18,7 @@ class HomeView extends StatelessWidget {
       Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
+          
           bottom: false,
           child: NestedScrollView(
             headerSliverBuilder: (context, innerBoxIsScrolled) => [
