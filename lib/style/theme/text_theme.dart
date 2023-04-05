@@ -28,4 +28,9 @@ TextTheme textTheme = TextTheme(
     fontWeight: FontWeight.w700,
     color: CColors.black,
   ),
+  displaySmall: TextStyle(
+    fontSize: 14.sp,
+    fontStyle: FontStyle.italic,
+    fontWeight: FontWeight.w500,
+  ),
 );

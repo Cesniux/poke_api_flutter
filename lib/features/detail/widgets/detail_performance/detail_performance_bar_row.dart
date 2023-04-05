@@ -66,11 +66,7 @@ class DetailPerformanceBarRow extends StatelessWidget {
                             alignment: Alignment.centerRight,
                             child: Text(
                               '$doubledStatValue/$maxStatValue',
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontStyle: FontStyle.italic,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: textTheme.displaySmall,
                             ),
                           ),
                         ),
