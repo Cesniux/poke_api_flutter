@@ -15,7 +15,7 @@ class DetailPerformanceStats extends StatelessWidget {
       children: [
         const DetailPerformanceHeader(),
         SizedBox(
-          height: 180.h,
+          height: 200.h,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [

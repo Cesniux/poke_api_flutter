@@ -16,7 +16,7 @@ class DetailPerformanceBarRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double barHeight = 28.h;
+    final double barHeight = 26.h;
     const int maxStatValue = 300;
     final int doubledStatValue = statValue * 2;
     final int emptyBarFlexValue = maxStatValue - doubledStatValue;

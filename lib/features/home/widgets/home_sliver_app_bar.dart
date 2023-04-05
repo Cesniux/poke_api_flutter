@@ -9,6 +9,7 @@ class HomeSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      centerTitle: true,
       backgroundColor: Colors.transparent,
       elevation: 0,
       title: Column(
@@ -28,4 +29,3 @@ class HomeSliverAppBar extends StatelessWidget {
     );
   }
 }
-

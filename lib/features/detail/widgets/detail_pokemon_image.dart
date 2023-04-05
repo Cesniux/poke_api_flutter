@@ -18,11 +18,18 @@ class DetailPokemonImage extends StatelessWidget {
             bottomRight: Radius.circular(60.w),
           )),
       width: double.infinity,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 35.h),
-        child: SvgPicture.asset(
-          'assets/images/svg/bulbasaur_image.svg',
-        ),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 40.h,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 35.h),
+            child: SvgPicture.asset(
+              'assets/images/svg/bulbasaur_image.svg',
+            ),
+          ),
+        ],
       ),
     );
   }
