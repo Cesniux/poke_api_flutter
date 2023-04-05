@@ -68,6 +68,7 @@ class DetailPerformanceBarRow extends StatelessWidget {
     const int maxStatAPIValue = 300;
     final int doubledStatAPIValue = statAPIValue * 2;
     final double indicatorValue = (doubledStatAPIValue / maxStatAPIValue);
+    final int emptyBarFlexValue = 300 - doubledStatAPIValue;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 10.w),
       child: Row(
@@ -82,33 +83,61 @@ class DetailPerformanceBarRow extends StatelessWidget {
           ),
           Flexible(
             flex: 7,
+            // Stacked a row on a container to see the stat progress and to be able use max and current value ratio in a Row
             child: Stack(
               children: [
-                ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(70)),
-                  child: LinearProgressIndicator(
-                    minHeight: 23.h,
-                    backgroundColor: CColors.silver,
-                    color: color,
-                    value: indicatorValue,
+                Container(
+                  decoration: const BoxDecoration(
+                    color: CColors.silver,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(99),
+                    ),
                   ),
+                  height: 25,
                 ),
-                Positioned.fill(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 10, left: 10),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        '$doubledStatAPIValue/$maxStatAPIValue',
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.w500,
+                // Making colored value bar show in the bar with exact ratio
+                Row(
+                  children: [
+                    Flexible(
+                      flex: doubledStatAPIValue,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: color,
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(99),
+                          ),
+                        ),
+                        height: 25,
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              '$doubledStatAPIValue/$maxStatAPIValue',
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                )
+                    Flexible(
+                      flex: emptyBarFlexValue,
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          color: CColors.silver,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(99),
+                          ),
+                        ),
+                        height: 25,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           )
