@@ -17,7 +17,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     // if (state.hasReachedMax) return;
     print('yo');
     await _fetchPokemons();
-    emit(const ListState());
+    // emit(const ListState());
   }
 
   Future<List<PokemonListItem>> _fetchPokemons() async {
@@ -33,9 +33,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     debugPrint('Image url list: $imageUrlList');
 
     if (nameResponse.statusCode == 200) {
-      final body = json.decode(nameResponse.body) as List;
-      print('Success fetch. Pokemon list(names): ${body.toString()}');
+      final body = json.decode(nameResponse.body) as Map<String, dynamic>;
+      print(nameResponse.statusCode);
+      print('Success fetch. Pokemon list(names): $body');
+      List<PokemonListItem> haha = [];
+      return haha;
     }
-    throw Exception('error fetching posts');
+    throw Exception('Excepttion fail');
   }
 }

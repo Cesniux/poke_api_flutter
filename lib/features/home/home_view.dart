@@ -27,7 +27,11 @@ class HomeView extends StatelessWidget {
             ],
             body: BlocProvider(
               create: (context) => HomeBloc()..add(PokemonFetched()),
-              child: PokemonGridView(dummyList: dummyList),
+              child: BlocBuilder<HomeBloc, HomeState>(
+                builder: (context, state) {
+                  return PokemonGridView(dummyList: dummyList);
+                },
+              ),
             ),
           ),
         ),
