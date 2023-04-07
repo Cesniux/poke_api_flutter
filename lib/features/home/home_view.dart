@@ -11,10 +11,10 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<SimplePokemonListItem> dummyList = List.filled(
-      50,
-      const SimplePokemonListItem(),
-    );
+    // List<SimplePokemonListItem> dummyList = List.filled(
+    //   50,
+    //   const SimplePokemonListItem(),
+    // );
     return Stack(children: [
       const SimpleBackgroundImage(),
       Scaffold(
@@ -29,7 +29,12 @@ class HomeView extends StatelessWidget {
               create: (context) => HomeBloc()..add(PokemonFetched()),
               child: BlocBuilder<HomeBloc, HomeState>(
                 builder: (context, state) {
-                  return PokemonGridView(dummyList: dummyList);
+                  if (state is ListState) {
+                    return PokemonGridView(pokemonList: state.pokemonList);
+                  }
+                  return const Center(
+                    child: Text('Error'),
+                  );
                 },
               ),
             ),

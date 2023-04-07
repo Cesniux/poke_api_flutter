@@ -3,7 +3,8 @@ class PokemonListItem {
   final String url;
   final String type;
 
-  PokemonListItem({required this.name, required this.url, required this.type});
+  PokemonListItem(
+      {required this.name, required this.url, this.type = 'poison'});
 
   PokemonListItem.fromJson(Map<String, dynamic> json)
       : name = json['name'],
@@ -17,5 +18,10 @@ class PokemonListItem {
   }) {
     return PokemonListItem(
         name: name ?? this.name, url: url ?? this.url, type: type ?? this.type);
+  }
+
+  @override
+  String toString() {
+    return 'PokemonListItem: name - $name, url - $url, type - $type,';
   }
 }
