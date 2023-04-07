@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class StatBar extends StatelessWidget {
@@ -7,7 +6,8 @@ class StatBar extends StatelessWidget {
   final String label;
   final Color color;
 
-  StatBar({
+  const StatBar({
+    super.key,
     required this.initialValue,
     required this.finalValue,
     required this.label,
@@ -27,10 +27,10 @@ class StatBar extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         TweenAnimationBuilder<double>(
           tween: Tween(begin: initialValue, end: finalValue),
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           builder: (BuildContext context, double value, Widget? child) {
             return Container(
               width: value * MediaQuery.of(context).size.width,

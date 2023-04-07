@@ -30,8 +30,8 @@ class SimplePokemonListItem extends StatelessWidget {
               children: [
                 Flexible(
                   fit: FlexFit.loose,
-                  child: SvgPicture.asset(
-                    'assets/images/svg/bulbasaur_image.svg',
+                  child: SvgPicture.network(
+                    'https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/2.svg',
                   ),
                 ),
                 SizedBox(

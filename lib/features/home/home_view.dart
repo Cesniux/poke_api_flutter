@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:poke_api_flutter/features/home/bloc/home_bloc.dart';
 import 'package:poke_api_flutter/features/home/widgets/home_sliver_app_bar.dart';
 import 'package:poke_api_flutter/features/home/widgets/pokemon_grid_view.dart';
 import 'package:poke_api_flutter/widgets/simple_background_image.dart';
@@ -18,13 +20,15 @@ class HomeView extends StatelessWidget {
       Scaffold(
         backgroundColor: Colors.transparent,
         body: SafeArea(
-          
           bottom: false,
           child: NestedScrollView(
             headerSliverBuilder: (context, innerBoxIsScrolled) => [
               const HomeSliverAppBar(),
             ],
-            body: PokemonGridView(dummyList: dummyList),
+            body: BlocProvider(
+              create: (context) => HomeBloc()..add(PokemonFetched()),
+              child: PokemonGridView(dummyList: dummyList),
+            ),
           ),
         ),
       ),
